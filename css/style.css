@@ -396,10 +396,9 @@ footer {
 }
 
 .footer-content > div {
-    flex: 1 1 0;
-    min-width: 250px;
+    flex: 1;
+    min-width: 0;
     margin: 0;
-    width: calc(33.333% - 2rem);
     box-sizing: border-box;
 }
 
