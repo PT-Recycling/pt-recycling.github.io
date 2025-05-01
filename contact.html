@@ -42,7 +42,12 @@
             <h3>Send Us a Message</h3>
             <p>Fill out the form below and we'll get back to you as soon as possible.</p>
 
-            <form id="contactForm" action="https://formspree.io/f/your-formspree-endpoint" method="POST">
+            <form id="contactForm" action="https://formsubmit.co/simon.nam14@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New message from PT Recycling website">
+                <input type="hidden" name="_captcha" value="true">
+                <input type="hidden" name="_next" value="https://pt-recycling.github.io/thank-you.html">
+                <input type="text" name="_honey" style="display:none">
+                
                 <div class="form-group">
                     <label for="name">Full Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -63,7 +68,7 @@
                     <select id="subject" name="subject" required>
                         <option value="">Select a subject</option>
                         <option value="quote">Request a Quote</option>
-                        <option value="pickup">Ask about a pickup</option>
+                        <option value="pickup">Pickup Inquiry</option>
                         <option value="catalytic">Catalytic Converter Inquiry</option>
                         <option value="general">General Question</option>
                     </select>

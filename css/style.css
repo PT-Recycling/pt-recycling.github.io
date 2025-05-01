@@ -593,3 +593,50 @@ footer {
         margin-bottom: 15px;
     }
 }
+/* Thank you page */
+.thank-you-section {
+    padding: 5rem 2rem;
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thank-you-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.thank-you-container h2 {
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.thank-you-container p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.thank-you-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .thank-you-container {
+        padding: 2rem;
+    }
+    
+    .thank-you-container h2 {
+        font-size: 2rem;
+    }
+}
