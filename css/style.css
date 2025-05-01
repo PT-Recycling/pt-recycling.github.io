@@ -224,8 +224,10 @@ header nav a:hover:after {
 
 /* Service detail pages */
 .service-detail {
-    padding: 3rem 1rem;
+    padding: 3rem 2rem;
     border-bottom: 1px solid #ddd;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .service-content {
@@ -238,6 +240,7 @@ header nav a:hover:after {
 .service-description {
     flex: 1;
     min-width: 300px;
+    padding: 0 1rem;
 }
 
 .service-image {
@@ -360,10 +363,15 @@ footer {
 .footer-content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 2rem;
+    justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto 2rem;
+}
+
+.footer-content > div {
+    flex: 1;
+    min-width: 250px;
+    margin: 0 1rem;
 }
 
 .footer-content h3 {
@@ -418,4 +426,14 @@ footer {
     .footer-links {
         align-items: center;
     }
+}
+.pricing-info, .cta-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+.service-description ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    padding-right: 1rem;
 }
