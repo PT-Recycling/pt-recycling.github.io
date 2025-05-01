@@ -272,14 +272,11 @@ header nav a.active::after {
     min-width: 300px;
 }
 
-.image-placeholder {
-    background-color: #ddd;
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #777;
+.service-img {
+    width: 100%;
+    height: auto;
     border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* About page */
