@@ -3,58 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(contactForm);
-            const formObject = {};
-            formData.forEach((value, key) => {
-                formObject[key] = value;
-            });
-            
-            // For a static site, we'll use Formspree or a similar service
-            // Replace 'your-formspree-endpoint' in the HTML with your actual endpoint
-            
-            // Show loading state
-            const submitButton = contactForm.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.textContent;
-            submitButton.textContent = 'Sending...';
-            submitButton.disabled = true;
-            
-            // Send the form data
-            fetch(contactForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error('Network response was not ok.');
-            })
-            .then(data => {
-                // Show success message
-                contactForm.innerHTML = `
-                    <div class="success-message">
-                        <h3>Thank You!</h3>
-                        <p>Your message has been sent successfully. We'll get back to you as soon as possible.</p>
-                    </div>
-                `;
-            })
-            .catch(error => {
-                // Show error message
-                console.error('Error:', error);
-                alert('There was a problem sending your message. Please try again or contact us directly by phone.');
-                
-                // Reset button
-                submitButton.textContent = originalButtonText;
-                submitButton.disabled = false;
-            });
-        });
+        // Form validation only - no submission handling
+        // FormSubmit.co will handle the actual submission
     }
     
     // Form validation
