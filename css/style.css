@@ -391,9 +391,9 @@ footer {
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -402,6 +402,9 @@ footer {
 .footer-column {
     display: flex;
     flex-direction: column;
+    flex: 1;
+    min-width: 200px;
+    padding: 0 15px;
 }
 
 .footer-about {
@@ -431,32 +434,7 @@ footer {
     color: rgba(255, 255, 255, 0.8);
 }
 
-.footer-social {
-    display: flex;
-    gap: 1rem;
-}
-
-.footer-social a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    color: #fff;
-    transition: all 0.3s ease;
-}
-
-.footer-social a:hover {
-    background-color: var(--accent-color);
-    transform: translateY(-3px);
-}
-
-.social-icon {
-    font-style: normal;
-    font-size: 0.8rem;
-}
+/* Social media styles removed */
 
 .footer-column h3 {
     color: #fff;
@@ -560,17 +538,20 @@ footer {
 
 @media (max-width: 768px) {
     .footer-content {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+    }
+    
+    .footer-column {
+        width: 100%;
+        margin-bottom: 2rem;
+        align-items: center;
     }
     
     .footer-column h3::after {
         left: 50%;
         transform: translateX(-50%);
-    }
-    
-    .footer-social {
-        justify-content: center;
     }
     
     .footer-contact-list li {
@@ -592,6 +573,12 @@ footer {
     .footer-hours-list li {
         flex-direction: column;
         align-items: center;
+    }
+    
+    .footer-divider {
+        width: 80%;
+        height: 1px;
+        margin: 15px auto;
     }
 }
 
@@ -786,5 +773,32 @@ footer {
     
     .thank-you-container h2 {
         font-size: 2rem;
+    }
+}
+/* Footer dividers */
+.footer-divider {
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px;
+    align-self: stretch;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-column {
+        width: 100%;
+        margin-bottom: 2rem;
+        align-items: center;
+    }
+    
+    .footer-divider {
+        width: 80%;
+        height: 1px;
+        margin: 15px auto;
     }
 }
