@@ -3,8 +3,67 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
-        // Form validation only - no submission handling
-        // FormSubmit.co will handle the actual submission
+        // Handle form submission with AJAX
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form before submission
+            if (!validateForm()) {
+                return false;
+            }
+            
+            // Show loading indicator
+            const submitButton = contactForm.querySelector('.submit-button');
+            const originalButtonText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            
+            // Create form data object
+            const formData = new FormData(contactForm);
+            
+            // Convert FormData to JSON object
+            const formDataJson = {};
+            formData.forEach((value, key) => {
+                formDataJson[key] = value;
+            });
+            
+            // Add FormSubmit specific fields
+            formDataJson['_subject'] = 'New message from PT Recycling website';
+            formDataJson['_captcha'] = 'false'; // Disable captcha for AJAX submissions
+            
+            // Send form data using fetch
+            fetch('https://formsubmit.co/ajax/simon.nam14@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formDataJson)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success === 'true' || data.success === true) {
+                    // Show success message and redirect
+                    window.location.href = 'thank-you.html';
+                } else {
+                    // Handle error
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                    alert('There was an error submitting the form. Please try again.');
+                }
+            })
+            .catch(error => {
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+                console.error('Error:', error);
+                alert('There was an error submitting the form. Please try again.');
+            });
+        });
     }
     
     // Form validation
