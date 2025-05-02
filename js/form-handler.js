@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Add FormSubmit specific fields
             formDataJson['_subject'] = 'New message from PT Recycling website';
-            formDataJson['_captcha'] = 'false'; // Disable captcha for AJAX submissions
+            formDataJson['_captcha'] = 'true';
             
             // Send form data using fetch
             fetch('https://formsubmit.co/ajax/simon.nam14@gmail.com', {
