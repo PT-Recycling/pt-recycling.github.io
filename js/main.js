@@ -8,7 +8,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Mobile menu toggle
+// Mobile menu toggle and dark mode handling
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const nav = document.querySelector('header nav');
@@ -56,31 +56,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Dark mode toggle
     const darkModeToggle = document.querySelector('.dark-mode-toggle');
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
     
-    // Check for saved theme preference or use the system preference
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        darkModeToggle.textContent = '☀️';
-    } else if (currentTheme === 'light') {
-        document.body.classList.remove('dark-mode');
-        darkModeToggle.textContent = '🌙';
-    } else if (prefersDarkScheme.matches) {
-        document.body.classList.add('dark-mode');
-        darkModeToggle.textContent = '☀️';
-    }
-    
-    // Toggle dark mode on button click
-    darkModeToggle.addEventListener('click', function() {
-        document.body.classList.toggle('dark-mode');
+    // Update dark mode toggle button text based on current mode
+    // Note: The initial dark mode state is now handled by preload.js
+    if (darkModeToggle) {
+        darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
         
-        if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('theme', 'dark');
-            darkModeToggle.textContent = '☀️';
-        } else {
-            localStorage.setItem('theme', 'light');
-            darkModeToggle.textContent = '🌙';
-        }
-    });
+        // Toggle dark mode on button click
+        darkModeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                darkModeToggle.textContent = '☀️';
+            } else {
+                localStorage.setItem('theme', 'light');
+                darkModeToggle.textContent = '🌙';
+            }
+        });
+    }
 });
