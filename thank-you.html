@@ -11,6 +11,53 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Inline styles to ensure immediate rendering without delay */
+        .thank-you-actions {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .thank-you-actions .secondary-button,
+        .thank-you-actions .cta-button {
+            min-width: 160px;
+            width: 160px;
+            text-align: center;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.7rem 1.2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            animation: none !important;
+            transition: none !important;
+            box-sizing: border-box;
+            height: 44px; /* Fixed height for both buttons */
+            margin: 0; /* Remove all margins */
+            line-height: 1;
+        }
+        
+        /* Override the default margin-top for secondary button */
+        .thank-you-actions .secondary-button {
+            margin-top: 0 !important;
+        }
+        
+        @media (max-width: 768px) {
+            .thank-you-actions {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .thank-you-actions .secondary-button,
+            .thank-you-actions .cta-button {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="navbar-placeholder"></div>

@@ -249,25 +249,27 @@ header nav a.active::after {
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    transition: var(--transition-standard);
     cursor: pointer;
     box-shadow: var(--shadow-md);
     position: relative;
     overflow: hidden;
     z-index: 1;
     text-align: center;
+    /* Remove animations and transitions for immediate loading */
+    transition: none;
+    animation: none !important;
 }
 
 .cta-button {
     background: var(--gradient-accent);
     color: #fff;
     border: none;
-    animation: fadeInUp 1s ease-out 0.8s both;
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-lg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cta-button::after {
@@ -300,6 +302,7 @@ header nav a.active::after {
     background-color: var(--primary-color);
     color: #fff;
     transform: translateY(-2px);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .submit-button {
@@ -1038,6 +1041,13 @@ body.dark-mode .service-description ul {
 .thank-you-actions .secondary-button,
 .thank-you-actions .cta-button {
     min-width: 180px;
+    width: 200px;
+    text-align: center;
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: none; /* Remove transitions to prevent loading animation */
 }
 
 @media (max-width: 768px) {
