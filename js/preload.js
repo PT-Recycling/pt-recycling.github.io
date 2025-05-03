@@ -12,6 +12,10 @@
     
     if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
         document.documentElement.classList.add('dark-mode-preload');
+        // Apply dark mode to body immediately to ensure it persists between tabs
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('dark-mode');
+        });
     }
     
     // Prevent layout shift during page load

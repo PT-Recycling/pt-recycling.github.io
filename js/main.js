@@ -10,6 +10,14 @@ window.addEventListener('scroll', function() {
 
 // Mobile menu toggle and dark mode handling
 document.addEventListener('DOMContentLoaded', function() {
+    // Apply dark mode class if needed (as a backup to preload.js)
+    const currentTheme = localStorage.getItem('theme');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+        document.body.classList.add('dark-mode');
+    }
+    
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const nav = document.querySelector('header nav');
     
@@ -58,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const darkModeToggle = document.querySelector('.dark-mode-toggle');
     
     // Update dark mode toggle button text based on current mode
-    // Note: The initial dark mode state is now handled by preload.js
     if (darkModeToggle) {
         darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
         
